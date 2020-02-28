@@ -10,6 +10,7 @@ namespace TimeSeriesAnalizer
             foreach (var point in model.TimeSeries)
             {
                 point.CalcEntropyMembershipFunction();
+                point.CalcEntropyFuzzyLabel();
 
                 if (beforePoint != null)
                 {
@@ -23,10 +24,6 @@ namespace TimeSeriesAnalizer
                 }
 
                 beforePoint = point;
-            }
-            for (int i = 1; i < model.TimeSeries.Count; ++i)
-            {
-
             }
         }
 

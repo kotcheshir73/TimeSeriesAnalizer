@@ -32,5 +32,9 @@ namespace TimeSeriesAnalizer
         public string FuzzyLabel { get; set; }
 
         public double? EntropyMembershipFunction { get; set; }
+
+        public double? ProbabilityFuzzyLabel { get; set; }
+
+        public double? EntropyFuzzyLabel { get; set; }
     }
 }

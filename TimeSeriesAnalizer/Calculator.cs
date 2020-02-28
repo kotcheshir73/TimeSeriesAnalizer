@@ -2,7 +2,7 @@
 
 namespace TimeSeriesAnalizer
 {
-    public static class Converter
+    public static class Calculator
     {
         public static void CalcPhasePlaneTrendPosition(this TimeSeriesPoint point)
         {
@@ -85,6 +85,18 @@ namespace TimeSeriesAnalizer
             {
                 point.EntropyMembershipFunction *= -1;
             }
+        }
+
+        public static void CalcEntropyFuzzyLabel(this TimeSeriesPoint point)
+        {
+            if (string.IsNullOrEmpty(point.FuzzyLabel))
+            {
+                return;
+            }
+
+            point.ProbabilityFuzzyLabel = Statisctics.FuzzyLabelStatistics(point.FuzzyLabel);
+
+            point.EntropyFuzzyLabel = point.ProbabilityFuzzyLabel * Math.Log(Math.Abs(point.ProbabilityFuzzyLabel.Value));
         }
     }
 }

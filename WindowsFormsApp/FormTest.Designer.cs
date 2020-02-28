@@ -105,6 +105,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 209);
             this.dataGridView1.Name = "dataGridView1";
@@ -123,28 +126,32 @@
             // 
             // textBoxNyMin
             // 
-            this.textBoxNyMin.Location = new System.Drawing.Point(494, 365);
+            this.textBoxNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNyMin.Location = new System.Drawing.Point(494, 377);
             this.textBoxNyMin.Name = "textBoxNyMin";
             this.textBoxNyMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxNyMin.TabIndex = 8;
             // 
             // textBoxNyMax
             // 
-            this.textBoxNyMax.Location = new System.Drawing.Point(494, 406);
+            this.textBoxNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNyMax.Location = new System.Drawing.Point(494, 418);
             this.textBoxNyMax.Name = "textBoxNyMax";
             this.textBoxNyMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxNyMax.TabIndex = 9;
             // 
             // textBoxEntropyNyMin
             // 
-            this.textBoxEntropyNyMin.Location = new System.Drawing.Point(631, 365);
+            this.textBoxEntropyNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxEntropyNyMin.Location = new System.Drawing.Point(631, 377);
             this.textBoxEntropyNyMin.Name = "textBoxEntropyNyMin";
             this.textBoxEntropyNyMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxEntropyNyMin.TabIndex = 10;
             // 
             // textBoxEntropyNyMax
             // 
-            this.textBoxEntropyNyMax.Location = new System.Drawing.Point(631, 406);
+            this.textBoxEntropyNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxEntropyNyMax.Location = new System.Drawing.Point(631, 418);
             this.textBoxEntropyNyMax.Name = "textBoxEntropyNyMax";
             this.textBoxEntropyNyMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxEntropyNyMax.TabIndex = 11;
@@ -153,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 462);
             this.Controls.Add(this.textBoxEntropyNyMax);
             this.Controls.Add(this.textBoxEntropyNyMin);
             this.Controls.Add(this.textBoxNyMax);

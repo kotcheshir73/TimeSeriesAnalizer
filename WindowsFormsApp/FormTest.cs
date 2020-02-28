@@ -40,8 +40,8 @@ namespace WindowsFormsApp
 
                 dataGridView1.DataSource = fuzzyTimeSeriesBaseModel.Points;
 
-                textBoxNyMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => x.Ny).ToString();
-                textBoxNyMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => x.Ny).ToString();
+                textBoxNyMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => Math.Abs(x.Ny.Value)).ToString();
+                textBoxNyMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => Math.Abs(x.Ny.Value)).ToString();
             }
         }
 
@@ -77,8 +77,8 @@ namespace WindowsFormsApp
                 });
 
                 dataGridView1.DataSource = fuzzyTimeSeriesBaseModel.Points;
-                textBoxEntropyNyMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => x.EntropyMembershipFunction).ToString();
-                textBoxEntropyNyMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => x.EntropyMembershipFunction).ToString();
+                textBoxEntropyNyMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => Math.Abs(x.EntropyMembershipFunction.Value)).ToString();
+                textBoxEntropyNyMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => Math.Abs(x.EntropyMembershipFunction.Value)).ToString();
             }
         }
     }
