@@ -15,6 +15,8 @@ namespace WindowsFormsApp
     {
         private FuzzyTimeSeriesBaseModel fuzzyTimeSeriesBaseModel;
 
+        private IFuzzyTimeSeries fuzzyTimeSeries;
+
         public FormTest()
         {
             InitializeComponent();
@@ -32,8 +34,9 @@ namespace WindowsFormsApp
             }
         }
 
-        private void Fuzzy(IFuzzyTimeSeries fuzzyTimeSeries)
+        private void Fuzzy(IFuzzyTimeSeries fts)
         {
+            fuzzyTimeSeries = fts;
             if(fuzzyTimeSeries != null && fuzzyTimeSeriesBaseModel != null)
             {
                 fuzzyTimeSeries.Fuzzyfication(fuzzyTimeSeriesBaseModel);
@@ -79,6 +82,16 @@ namespace WindowsFormsApp
                 dataGridView1.DataSource = fuzzyTimeSeriesBaseModel.Points;
                 textBoxEntropyNyMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => Math.Abs(x.EntropyMembershipFunction.Value)).ToString();
                 textBoxEntropyNyMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => Math.Abs(x.EntropyMembershipFunction.Value)).ToString();
+            }
+        }
+
+        private void ButtonShowFuzzyLabels_Click(object sender, EventArgs e)
+        {
+            if (fuzzyTimeSeries != null)
+            {
+                var form = new FormFuzzyLabels();
+                form.Load(fuzzyTimeSeries.GetFuzzyLabels());
+                form.Show();
             }
         }
     }

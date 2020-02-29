@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class Form1 : Form
+    public partial class FormTriangular : Form
     {
-        public Form1()
+        public FormTriangular()
         {
             InitializeComponent();
+        }
+
+        private void ButtonApply_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

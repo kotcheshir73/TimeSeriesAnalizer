@@ -41,6 +41,7 @@
             this.textBoxNyMax = new System.Windows.Forms.TextBox();
             this.textBoxEntropyNyMin = new System.Windows.Forms.TextBox();
             this.textBoxEntropyNyMax = new System.Windows.Forms.TextBox();
+            this.buttonShowFuzzyLabels = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@
             // 
             // buttonTriangle
             // 
-            this.buttonTriangle.Location = new System.Drawing.Point(230, 140);
+            this.buttonTriangle.Location = new System.Drawing.Point(150, 140);
             this.buttonTriangle.Name = "buttonTriangle";
             this.buttonTriangle.Size = new System.Drawing.Size(100, 34);
             this.buttonTriangle.TabIndex = 4;
@@ -111,12 +112,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 209);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(763, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(809, 221);
             this.dataGridView1.TabIndex = 6;
             // 
             // buttonAnalizer
             // 
-            this.buttonAnalizer.Location = new System.Drawing.Point(469, 140);
+            this.buttonAnalizer.Location = new System.Drawing.Point(286, 140);
             this.buttonAnalizer.Name = "buttonAnalizer";
             this.buttonAnalizer.Size = new System.Drawing.Size(116, 34);
             this.buttonAnalizer.TabIndex = 7;
@@ -127,7 +128,7 @@
             // textBoxNyMin
             // 
             this.textBoxNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxNyMin.Location = new System.Drawing.Point(494, 377);
+            this.textBoxNyMin.Location = new System.Drawing.Point(517, 448);
             this.textBoxNyMin.Name = "textBoxNyMin";
             this.textBoxNyMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxNyMin.TabIndex = 8;
@@ -135,7 +136,7 @@
             // textBoxNyMax
             // 
             this.textBoxNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxNyMax.Location = new System.Drawing.Point(494, 418);
+            this.textBoxNyMax.Location = new System.Drawing.Point(517, 489);
             this.textBoxNyMax.Name = "textBoxNyMax";
             this.textBoxNyMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxNyMax.TabIndex = 9;
@@ -143,7 +144,7 @@
             // textBoxEntropyNyMin
             // 
             this.textBoxEntropyNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxEntropyNyMin.Location = new System.Drawing.Point(631, 377);
+            this.textBoxEntropyNyMin.Location = new System.Drawing.Point(654, 448);
             this.textBoxEntropyNyMin.Name = "textBoxEntropyNyMin";
             this.textBoxEntropyNyMin.Size = new System.Drawing.Size(100, 20);
             this.textBoxEntropyNyMin.TabIndex = 10;
@@ -151,16 +152,27 @@
             // textBoxEntropyNyMax
             // 
             this.textBoxEntropyNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBoxEntropyNyMax.Location = new System.Drawing.Point(631, 418);
+            this.textBoxEntropyNyMax.Location = new System.Drawing.Point(654, 489);
             this.textBoxEntropyNyMax.Name = "textBoxEntropyNyMax";
             this.textBoxEntropyNyMax.Size = new System.Drawing.Size(100, 20);
             this.textBoxEntropyNyMax.TabIndex = 11;
+            // 
+            // buttonShowFuzzyLabels
+            // 
+            this.buttonShowFuzzyLabels.Location = new System.Drawing.Point(428, 140);
+            this.buttonShowFuzzyLabels.Name = "buttonShowFuzzyLabels";
+            this.buttonShowFuzzyLabels.Size = new System.Drawing.Size(116, 34);
+            this.buttonShowFuzzyLabels.TabIndex = 12;
+            this.buttonShowFuzzyLabels.Text = "Метки";
+            this.buttonShowFuzzyLabels.UseVisualStyleBackColor = true;
+            this.buttonShowFuzzyLabels.Click += new System.EventHandler(this.ButtonShowFuzzyLabels_Click);
             // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 462);
+            this.ClientSize = new System.Drawing.Size(846, 533);
+            this.Controls.Add(this.buttonShowFuzzyLabels);
             this.Controls.Add(this.textBoxEntropyNyMax);
             this.Controls.Add(this.textBoxEntropyNyMin);
             this.Controls.Add(this.textBoxNyMax);
@@ -196,5 +208,6 @@
         private System.Windows.Forms.TextBox textBoxNyMax;
         private System.Windows.Forms.TextBox textBoxEntropyNyMin;
         private System.Windows.Forms.TextBox textBoxEntropyNyMax;
+        private System.Windows.Forms.Button buttonShowFuzzyLabels;
     }
 }

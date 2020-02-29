@@ -109,6 +109,14 @@ namespace TimeSeriesAnalizer
             }
         }
 
+        public FuzzyLabelsViewModel GetFuzzyLabels()
+        {
+            return new FuzzyLabelsViewModel
+            {
+                FuzzyLabels = centers
+            };
+        }
+
         /// <summary>
         /// Нормализация первоначальной матрицы, чтобы сумма по строкам == 1, а постолбцам не более points.Count
         /// </summary>
@@ -211,8 +219,8 @@ namespace TimeSeriesAnalizer
                     }
                     else
                     {
-                        U[i, j] = (1 / Math.Pow(CalcDistanse(points[j], centers[i]), 1 / (q - 1))) / sum;
-                        if (points[j].Ny < U[i, j])
+                        U[i, j] = Math.Round((1 / Math.Pow(CalcDistanse(points[j], centers[i]), 1 / (q - 1))) / sum, 4);
+                        if (Math.Abs(points[j].Ny.Value) < U[i, j])
                         {
                             points[j].Ny = U[i, j];
                             points[j].FuzzyLabel = centers[i].LinguisticTerm;

@@ -5,5 +5,7 @@
         void Fuzzyfication(FuzzyTimeSeriesBaseModel model);
 
         void FuzzyPoint(FuzzyTimeSeriesBindingModel model);
+
+        FuzzyLabelsViewModel GetFuzzyLabels();
     }
 }

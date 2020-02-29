@@ -9,19 +9,11 @@ namespace TimeSeriesAnalizer
 
         public void Fuzzyfication(FuzzyTimeSeriesBaseModel model)
         {
-            if (model is FuzzyLabelConfig config)
+            if (model is TriangularConfig config)
             {
                 if(config.List != null)
                 {
                     fuzzyLabels = config.List;
-                }
-                else if (config.Values != null)
-                {
-                    fuzzyLabels = new List<FuzzyLabel>();
-                    foreach (var value in config.Values)
-                    {
-                        fuzzyLabels.Add(new FuzzyLabel { LinguisticTerm = value.Key, MinVal = value.Value.Item1, Center = value.Value.Item2, MaxVal = value.Value.Item3 });
-                    }
                 }
                 else if (config.CountLabels != null)
                 {
@@ -96,6 +88,14 @@ namespace TimeSeriesAnalizer
                     return;
                 }
             }
+        }
+
+        public FuzzyLabelsViewModel GetFuzzyLabels()
+        {
+            return new FuzzyLabelsViewModel
+            {
+                FuzzyLabels = fuzzyLabels
+            };
         }
     }
 }

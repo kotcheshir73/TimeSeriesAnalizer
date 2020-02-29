@@ -79,7 +79,7 @@ namespace TimeSeriesAnalizer
                 return;
             }
 
-            point.EntropyMembershipFunction = point.Ny * Math.Log(Math.Abs(point.Ny.Value));
+            point.EntropyMembershipFunction = Math.Round(point.Ny.Value * Math.Log(Math.Abs(point.Ny.Value)), 4);
 
             if((point.Ny < 0 && point.EntropyMembershipFunction > 0) || (point.Ny > 0 && point.EntropyMembershipFunction < 0))
             {

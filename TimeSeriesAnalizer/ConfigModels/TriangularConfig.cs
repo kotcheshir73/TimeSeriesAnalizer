@@ -2,7 +2,7 @@
 
 namespace TimeSeriesAnalizer
 {
-    public class FuzzyLabelConfig : FuzzyTimeSeriesBaseModel
+    public class TriangularConfig : FuzzyTimeSeriesBaseModel
     {
         public double? BeginValue { get; set; }
 
@@ -13,9 +13,5 @@ namespace TimeSeriesAnalizer
         public int? Percent { get; set; }
 
         public List<FuzzyLabel> List { get; set; }
-
-        public Dictionary<string, (double, double, double)> Values { get; set; }
-
-        
     }
 }
