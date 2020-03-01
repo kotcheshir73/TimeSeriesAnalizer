@@ -31,6 +31,8 @@ namespace WindowsFormsApp
                     Points = loader.LoadTS(new LoaderConfig { Path = textBoxPath.Text })
                 };
                 dataGridView1.DataSource = fuzzyTimeSeriesBaseModel.Points;
+                textBoxValueMin.Text = fuzzyTimeSeriesBaseModel.Points.Min(x => x.Value).ToString();
+                textBoxValueMax.Text = fuzzyTimeSeriesBaseModel.Points.Max(x => x.Value).ToString();
             }
         }
 
@@ -92,6 +94,19 @@ namespace WindowsFormsApp
                 var form = new FormFuzzyLabels();
                 form.Load(fuzzyTimeSeries.GetFuzzyLabels());
                 form.Show();
+            }
+        }
+
+        private void ButtonTriangle_Click(object sender, EventArgs e)
+        {
+            var form = new FormTriangular();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                var config = form.Config;
+                config.Points = fuzzyTimeSeriesBaseModel.Points;
+                fuzzyTimeSeriesBaseModel = config;
+
+                Fuzzy(new TriangularFuzzyTimeSeries());
             }
         }
     }

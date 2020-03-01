@@ -6,6 +6,7 @@ namespace TimeSeriesAnalizer
     {
         public void AnalizerTimeSeries(AnalizerTimeSeriesBindingModel model)
         {
+            Statisctics.InitFuzzyLabelStatistics();
             TimeSeriesPoint beforePoint = null;
             foreach (var point in model.TimeSeries)
             {

@@ -25,7 +25,7 @@ namespace TimeSeriesAnalizer
                         {
                             MinVal = config.BeginValue + step * i - step * config.Percent / 100,
                             MaxVal = config.BeginValue + step * (i + 1) + step * config.Percent / 100,
-                            Center = config.BeginValue + (step / 2),
+                            Center = (2 * config.BeginValue + step * (2 * i + 1)) / 2,
                             LinguisticTerm = $"Метка {i + 1}"
                         });
                     }
@@ -43,10 +43,12 @@ namespace TimeSeriesAnalizer
 
             foreach(var point in model.Points)
             {
+                point.Ny = 0;
                 foreach (var label in fuzzyLabels)
                 {
-                    if (point.Value >= label.MinVal.Value && point.Value <= label.MaxVal.Value)
+                    if (point.Value > label.MinVal.Value && point.Value < label.MaxVal.Value)
                     {
+                        point.FuzzyLabel = label.LinguisticTerm;
                         if (point.Value < label.Center.Value)
                         {
                             point.Ny = -1 * ((point.Value - label.MinVal.Value) / (label.Center.Value - label.MinVal.Value));
@@ -55,7 +57,7 @@ namespace TimeSeriesAnalizer
                         {
                             point.Ny = ((label.MaxVal.Value - point.Value) / (label.MaxVal.Value - label.Center.Value));
                         }
-                        return;
+                        break;
                     }
                 }
             }
@@ -75,7 +77,7 @@ namespace TimeSeriesAnalizer
 
             foreach (var label in fuzzyLabels)
             {
-                if (model.Point.Value >= label.MinVal.Value && model.Point.Value <= label.MaxVal.Value)
+                if (model.Point.Value > label.MinVal.Value && model.Point.Value < label.MaxVal.Value)
                 {
                     if (model.Point.Value < label.Center.Value)
                     {

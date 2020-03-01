@@ -42,6 +42,8 @@
             this.textBoxEntropyNyMin = new System.Windows.Forms.TextBox();
             this.textBoxEntropyNyMax = new System.Windows.Forms.TextBox();
             this.buttonShowFuzzyLabels = new System.Windows.Forms.Button();
+            this.textBoxValueMax = new System.Windows.Forms.TextBox();
+            this.textBoxValueMin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +95,7 @@
             this.buttonTriangle.TabIndex = 4;
             this.buttonTriangle.Text = "Треугольная функция";
             this.buttonTriangle.UseVisualStyleBackColor = true;
+            this.buttonTriangle.Click += new System.EventHandler(this.ButtonTriangle_Click);
             // 
             // buttonLoadTxt
             // 
@@ -127,7 +130,7 @@
             // 
             // textBoxNyMin
             // 
-            this.textBoxNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNyMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxNyMin.Location = new System.Drawing.Point(517, 448);
             this.textBoxNyMin.Name = "textBoxNyMin";
             this.textBoxNyMin.Size = new System.Drawing.Size(100, 20);
@@ -135,7 +138,7 @@
             // 
             // textBoxNyMax
             // 
-            this.textBoxNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxNyMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxNyMax.Location = new System.Drawing.Point(517, 489);
             this.textBoxNyMax.Name = "textBoxNyMax";
             this.textBoxNyMax.Size = new System.Drawing.Size(100, 20);
@@ -143,7 +146,7 @@
             // 
             // textBoxEntropyNyMin
             // 
-            this.textBoxEntropyNyMin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxEntropyNyMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxEntropyNyMin.Location = new System.Drawing.Point(654, 448);
             this.textBoxEntropyNyMin.Name = "textBoxEntropyNyMin";
             this.textBoxEntropyNyMin.Size = new System.Drawing.Size(100, 20);
@@ -151,7 +154,7 @@
             // 
             // textBoxEntropyNyMax
             // 
-            this.textBoxEntropyNyMax.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxEntropyNyMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxEntropyNyMax.Location = new System.Drawing.Point(654, 489);
             this.textBoxEntropyNyMax.Name = "textBoxEntropyNyMax";
             this.textBoxEntropyNyMax.Size = new System.Drawing.Size(100, 20);
@@ -167,11 +170,29 @@
             this.buttonShowFuzzyLabels.UseVisualStyleBackColor = true;
             this.buttonShowFuzzyLabels.Click += new System.EventHandler(this.ButtonShowFuzzyLabels_Click);
             // 
+            // textBoxValueMax
+            // 
+            this.textBoxValueMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxValueMax.Location = new System.Drawing.Point(25, 489);
+            this.textBoxValueMax.Name = "textBoxValueMax";
+            this.textBoxValueMax.Size = new System.Drawing.Size(100, 20);
+            this.textBoxValueMax.TabIndex = 14;
+            // 
+            // textBoxValueMin
+            // 
+            this.textBoxValueMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxValueMin.Location = new System.Drawing.Point(25, 448);
+            this.textBoxValueMin.Name = "textBoxValueMin";
+            this.textBoxValueMin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxValueMin.TabIndex = 13;
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 533);
+            this.Controls.Add(this.textBoxValueMax);
+            this.Controls.Add(this.textBoxValueMin);
             this.Controls.Add(this.buttonShowFuzzyLabels);
             this.Controls.Add(this.textBoxEntropyNyMax);
             this.Controls.Add(this.textBoxEntropyNyMin);
@@ -209,5 +230,7 @@
         private System.Windows.Forms.TextBox textBoxEntropyNyMin;
         private System.Windows.Forms.TextBox textBoxEntropyNyMax;
         private System.Windows.Forms.Button buttonShowFuzzyLabels;
+        private System.Windows.Forms.TextBox textBoxValueMax;
+        private System.Windows.Forms.TextBox textBoxValueMin;
     }
 }

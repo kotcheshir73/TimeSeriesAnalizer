@@ -29,26 +29,28 @@
         private void InitializeComponent()
         {
             this.groupBoxFuzzyLabels = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewFuzzyLabels = new System.Windows.Forms.DataGridView();
             this.ColumnLinguisticTerm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMinVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCenter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMaxVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelBeginValue = new System.Windows.Forms.Label();
-            this.textBoxBeginValue = new System.Windows.Forms.TextBox();
-            this.labelEndValue = new System.Windows.Forms.Label();
-            this.textBoxEndValue = new System.Windows.Forms.TextBox();
-            this.labelCountLabels = new System.Windows.Forms.Label();
-            this.numericUpDownCountLabels = new System.Windows.Forms.NumericUpDown();
-            this.labelPercent = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDownPercent = new System.Windows.Forms.NumericUpDown();
+            this.labelPercent = new System.Windows.Forms.Label();
+            this.numericUpDownCountLabels = new System.Windows.Forms.NumericUpDown();
+            this.labelCountLabels = new System.Windows.Forms.Label();
+            this.textBoxEndValue = new System.Windows.Forms.TextBox();
+            this.labelEndValue = new System.Windows.Forms.Label();
+            this.textBoxBeginValue = new System.Windows.Forms.TextBox();
+            this.labelBeginValue = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
+            this.radioButtonUseTable = new System.Windows.Forms.RadioButton();
+            this.radioButtonUseParameters = new System.Windows.Forms.RadioButton();
             this.groupBoxFuzzyLabels.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuzzyLabels)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountLabels)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountLabels)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxFuzzyLabels
@@ -61,24 +63,6 @@
             this.groupBoxFuzzyLabels.TabIndex = 0;
             this.groupBoxFuzzyLabels.TabStop = false;
             this.groupBoxFuzzyLabels.Text = "Нечеткие центры";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.numericUpDownPercent);
-            this.groupBox2.Controls.Add(this.labelPercent);
-            this.groupBox2.Controls.Add(this.numericUpDownCountLabels);
-            this.groupBox2.Controls.Add(this.labelCountLabels);
-            this.groupBox2.Controls.Add(this.textBoxEndValue);
-            this.groupBox2.Controls.Add(this.labelEndValue);
-            this.groupBox2.Controls.Add(this.textBoxBeginValue);
-            this.groupBox2.Controls.Add(this.labelBeginValue);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 191);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(624, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Автоматическое разбиение";
             // 
             // dataGridViewFuzzyLabels
             // 
@@ -117,53 +101,30 @@
             this.ColumnMaxVal.HeaderText = "Макс. знач.";
             this.ColumnMaxVal.Name = "ColumnMaxVal";
             // 
-            // labelBeginValue
+            // groupBox2
             // 
-            this.labelBeginValue.AutoSize = true;
-            this.labelBeginValue.Location = new System.Drawing.Point(25, 30);
-            this.labelBeginValue.Name = "labelBeginValue";
-            this.labelBeginValue.Size = new System.Drawing.Size(115, 13);
-            this.labelBeginValue.TabIndex = 0;
-            this.labelBeginValue.Text = "Начальное значение:";
+            this.groupBox2.Controls.Add(this.numericUpDownPercent);
+            this.groupBox2.Controls.Add(this.labelPercent);
+            this.groupBox2.Controls.Add(this.numericUpDownCountLabels);
+            this.groupBox2.Controls.Add(this.labelCountLabels);
+            this.groupBox2.Controls.Add(this.textBoxEndValue);
+            this.groupBox2.Controls.Add(this.labelEndValue);
+            this.groupBox2.Controls.Add(this.textBoxBeginValue);
+            this.groupBox2.Controls.Add(this.labelBeginValue);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(0, 191);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(624, 100);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Автоматическое разбиение";
             // 
-            // textBoxBeginValue
+            // numericUpDownPercent
             // 
-            this.textBoxBeginValue.Location = new System.Drawing.Point(162, 27);
-            this.textBoxBeginValue.Name = "textBoxBeginValue";
-            this.textBoxBeginValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxBeginValue.TabIndex = 1;
-            // 
-            // labelEndValue
-            // 
-            this.labelEndValue.AutoSize = true;
-            this.labelEndValue.Location = new System.Drawing.Point(25, 61);
-            this.labelEndValue.Name = "labelEndValue";
-            this.labelEndValue.Size = new System.Drawing.Size(108, 13);
-            this.labelEndValue.TabIndex = 2;
-            this.labelEndValue.Text = "Конечное значение:";
-            // 
-            // textBoxEndValue
-            // 
-            this.textBoxEndValue.Location = new System.Drawing.Point(162, 58);
-            this.textBoxEndValue.Name = "textBoxEndValue";
-            this.textBoxEndValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEndValue.TabIndex = 3;
-            // 
-            // labelCountLabels
-            // 
-            this.labelCountLabels.AutoSize = true;
-            this.labelCountLabels.Location = new System.Drawing.Point(318, 30);
-            this.labelCountLabels.Name = "labelCountLabels";
-            this.labelCountLabels.Size = new System.Drawing.Size(110, 13);
-            this.labelCountLabels.TabIndex = 4;
-            this.labelCountLabels.Text = "Количество центров";
-            // 
-            // numericUpDownCountLabels
-            // 
-            this.numericUpDownCountLabels.Location = new System.Drawing.Point(455, 28);
-            this.numericUpDownCountLabels.Name = "numericUpDownCountLabels";
-            this.numericUpDownCountLabels.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDownCountLabels.TabIndex = 5;
+            this.numericUpDownPercent.Location = new System.Drawing.Point(455, 58);
+            this.numericUpDownPercent.Name = "numericUpDownPercent";
+            this.numericUpDownPercent.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownPercent.TabIndex = 7;
             // 
             // labelPercent
             // 
@@ -174,12 +135,53 @@
             this.labelPercent.TabIndex = 6;
             this.labelPercent.Text = "Процент наложения:";
             // 
-            // numericUpDownPercent
+            // numericUpDownCountLabels
             // 
-            this.numericUpDownPercent.Location = new System.Drawing.Point(455, 58);
-            this.numericUpDownPercent.Name = "numericUpDownPercent";
-            this.numericUpDownPercent.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDownPercent.TabIndex = 7;
+            this.numericUpDownCountLabels.Location = new System.Drawing.Point(455, 28);
+            this.numericUpDownCountLabels.Name = "numericUpDownCountLabels";
+            this.numericUpDownCountLabels.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownCountLabels.TabIndex = 5;
+            // 
+            // labelCountLabels
+            // 
+            this.labelCountLabels.AutoSize = true;
+            this.labelCountLabels.Location = new System.Drawing.Point(318, 30);
+            this.labelCountLabels.Name = "labelCountLabels";
+            this.labelCountLabels.Size = new System.Drawing.Size(110, 13);
+            this.labelCountLabels.TabIndex = 4;
+            this.labelCountLabels.Text = "Количество центров";
+            // 
+            // textBoxEndValue
+            // 
+            this.textBoxEndValue.Location = new System.Drawing.Point(162, 58);
+            this.textBoxEndValue.Name = "textBoxEndValue";
+            this.textBoxEndValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEndValue.TabIndex = 3;
+            // 
+            // labelEndValue
+            // 
+            this.labelEndValue.AutoSize = true;
+            this.labelEndValue.Location = new System.Drawing.Point(25, 61);
+            this.labelEndValue.Name = "labelEndValue";
+            this.labelEndValue.Size = new System.Drawing.Size(108, 13);
+            this.labelEndValue.TabIndex = 2;
+            this.labelEndValue.Text = "Конечное значение:";
+            // 
+            // textBoxBeginValue
+            // 
+            this.textBoxBeginValue.Location = new System.Drawing.Point(162, 27);
+            this.textBoxBeginValue.Name = "textBoxBeginValue";
+            this.textBoxBeginValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBeginValue.TabIndex = 1;
+            // 
+            // labelBeginValue
+            // 
+            this.labelBeginValue.AutoSize = true;
+            this.labelBeginValue.Location = new System.Drawing.Point(25, 30);
+            this.labelBeginValue.Name = "labelBeginValue";
+            this.labelBeginValue.Size = new System.Drawing.Size(115, 13);
+            this.labelBeginValue.TabIndex = 0;
+            this.labelBeginValue.Text = "Начальное значение:";
             // 
             // buttonApply
             // 
@@ -191,23 +193,48 @@
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
+            // radioButtonUseTable
+            // 
+            this.radioButtonUseTable.AutoSize = true;
+            this.radioButtonUseTable.Location = new System.Drawing.Point(12, 300);
+            this.radioButtonUseTable.Name = "radioButtonUseTable";
+            this.radioButtonUseTable.Size = new System.Drawing.Size(141, 17);
+            this.radioButtonUseTable.TabIndex = 3;
+            this.radioButtonUseTable.TabStop = true;
+            this.radioButtonUseTable.Text = "Использовать таблицу";
+            this.radioButtonUseTable.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonUseParameters
+            // 
+            this.radioButtonUseParameters.AutoSize = true;
+            this.radioButtonUseParameters.Location = new System.Drawing.Point(190, 300);
+            this.radioButtonUseParameters.Name = "radioButtonUseParameters";
+            this.radioButtonUseParameters.Size = new System.Drawing.Size(158, 17);
+            this.radioButtonUseParameters.TabIndex = 4;
+            this.radioButtonUseParameters.TabStop = true;
+            this.radioButtonUseParameters.Text = "Использовать параметры";
+            this.radioButtonUseParameters.UseVisualStyleBackColor = true;
+            // 
             // FormTriangular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 328);
+            this.Controls.Add(this.radioButtonUseParameters);
+            this.Controls.Add(this.radioButtonUseTable);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxFuzzyLabels);
             this.Name = "FormTriangular";
             this.Text = "Треугольная ФП";
             this.groupBoxFuzzyLabels.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuzzyLabels)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuzzyLabels)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountLabels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountLabels)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -229,5 +256,7 @@
         private System.Windows.Forms.Label labelPercent;
         private System.Windows.Forms.NumericUpDown numericUpDownPercent;
         private System.Windows.Forms.Button buttonApply;
+        private System.Windows.Forms.RadioButton radioButtonUseTable;
+        private System.Windows.Forms.RadioButton radioButtonUseParameters;
     }
 }

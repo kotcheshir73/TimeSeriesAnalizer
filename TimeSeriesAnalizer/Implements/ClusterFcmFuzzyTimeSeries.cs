@@ -219,7 +219,7 @@ namespace TimeSeriesAnalizer
                     }
                     else
                     {
-                        U[i, j] = Math.Round((1 / Math.Pow(CalcDistanse(points[j], centers[i]), 1 / (q - 1))) / sum, 4);
+                        U[i, j] = (1 / Math.Pow(CalcDistanse(points[j], centers[i]), 1 / (q - 1))) / sum;
                         if (Math.Abs(points[j].Ny.Value) < U[i, j])
                         {
                             points[j].Ny = U[i, j];
