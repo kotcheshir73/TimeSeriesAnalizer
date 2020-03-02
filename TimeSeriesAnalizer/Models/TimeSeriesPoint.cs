@@ -22,6 +22,8 @@ namespace TimeSeriesAnalizer
         /// </summary>
         public double? DynamicTrend { get; set; }
 
+        public DynamicLingvist? DynamicLingvist { get; set; }
+
         /// <summary>
         /// расположение на фазовой плоскости
         /// </summary>

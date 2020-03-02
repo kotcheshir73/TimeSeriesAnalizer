@@ -4,6 +4,71 @@ namespace TimeSeriesAnalizer
 {
     public static class Calculator
     {
+        public static void CalcDynamicLingvist(this TimeSeriesPoint point, double? dynamic)
+        {
+            if(!point.DynamicTrend.HasValue)
+            {
+                return;
+            }
+
+            if (point.DynamicTrend == 0)
+            {
+                point.DynamicLingvist = DynamicLingvist.Стабильность;
+            }
+            // была стабильность
+            else if (!dynamic.HasValue || dynamic == 0)
+            {
+                if(point.DynamicTrend > 0)
+                {
+                    point.DynamicLingvist = DynamicLingvist.Рост;
+                }
+                else if(point.DynamicTrend < 0)
+                {
+                    point.DynamicLingvist = DynamicLingvist.Падение;
+                }
+            }
+            // был рост
+            else if(dynamic > 0)
+            {
+                if(point.DynamicTrend < 0)
+                {
+                    point.DynamicLingvist = DynamicLingvist.Падение;
+                }
+                else if (dynamic < point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.РостСильный;
+                }
+                else if (dynamic > point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.РостСлабый;
+                }
+                else if (dynamic == point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.РостНеизменный;
+                }
+            }
+            // было падение
+            else if (dynamic < 0)
+            {
+                if (point.DynamicTrend > 0)
+                {
+                    point.DynamicLingvist = DynamicLingvist.Рост;
+                }
+                else if (dynamic < point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.ПадениеСильное;
+                }
+                else if (dynamic > point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.ПадениеСлабое;
+                }
+                else if (dynamic == point.DynamicTrend)
+                {
+                    point.DynamicLingvist = DynamicLingvist.ПадениеНеизменное;
+                }
+            }
+        }
+
         public static void CalcPhasePlaneTrendPosition(this TimeSeriesPoint point)
         {
             if(!point.Trend.HasValue || !point.DynamicTrend.HasValue)
@@ -79,7 +144,7 @@ namespace TimeSeriesAnalizer
                 return;
             }
 
-            point.EntropyMembershipFunction = Math.Round(point.Ny.Value * Math.Log(1 / Math.Abs(point.Ny.Value)), 5);
+            point.EntropyMembershipFunction = Math.Round(Math.Log(1 / Math.Abs(point.Ny.Value)), 5);
         }
 
         public static void CalcEntropyFuzzyLabel(this TimeSeriesPoint point)

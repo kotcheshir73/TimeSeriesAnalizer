@@ -21,6 +21,7 @@ namespace TimeSeriesAnalizer
                     {
                         point.DynamicTrend = point.Trend - beforePoint.Trend;
                         point.CalcPhasePlaneTrendPosition();
+                        point.CalcDynamicLingvist(beforePoint.DynamicTrend);
                     }
                 }
 
