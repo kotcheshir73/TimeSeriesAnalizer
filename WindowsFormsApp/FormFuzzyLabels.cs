@@ -17,7 +17,7 @@ namespace WindowsFormsApp
                 dataGridViewFuzzyLabels.Rows.Clear();
                 foreach(var elem in model.FuzzyLabels)
                 {
-                    dataGridViewFuzzyLabels.Rows.Add(new object[] { elem.LinguisticTerm, elem.MinVal, elem.Center, elem.MaxVal });
+                    dataGridViewFuzzyLabels.Rows.Add(new object[] { elem.LinguisticTerm, elem.MinVal, elem.Center, elem.MaxVal, elem.Entropy });
                 }
             }
         }

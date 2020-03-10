@@ -33,6 +33,7 @@
             this.ColumnMinVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCenter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMaxVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEntropy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuzzyLabels)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.ColumnLinguisticTerm,
             this.ColumnMinVal,
             this.ColumnCenter,
-            this.ColumnMaxVal});
+            this.ColumnMaxVal,
+            this.ColumnEntropy});
             this.dataGridViewFuzzyLabels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFuzzyLabels.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewFuzzyLabels.Name = "dataGridViewFuzzyLabels";
@@ -80,6 +82,12 @@
             this.ColumnMaxVal.Name = "ColumnMaxVal";
             this.ColumnMaxVal.ReadOnly = true;
             // 
+            // ColumnEntropy
+            // 
+            this.ColumnEntropy.HeaderText = "Энтропия";
+            this.ColumnEntropy.Name = "ColumnEntropy";
+            this.ColumnEntropy.ReadOnly = true;
+            // 
             // FormFuzzyLabels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,5 +108,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMinVal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCenter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMaxVal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEntropy;
     }
 }

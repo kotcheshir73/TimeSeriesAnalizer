@@ -7,6 +7,8 @@ namespace TimeSeriesAnalizer
         public void AnalizerTimeSeries(AnalizerTimeSeriesBindingModel model)
         {
             Statisctics.InitFuzzyLabelStatistics();
+            Statisctics.InitPhasePlaneStatistics();
+            TrendStaticStatistic.Init();
             TimeSeriesPoint beforePoint = null;
             foreach (var point in model.TimeSeries)
             {
@@ -22,6 +24,7 @@ namespace TimeSeriesAnalizer
                         point.DynamicTrend = point.Trend - beforePoint.Trend;
                         point.CalcPhasePlaneTrendPosition();
                         point.CalcDynamicLingvist(beforePoint.DynamicTrend);
+                        point.CalcEntropyFuzzyTrend(beforePoint.PhasePlaneTrendPosition);
                     }
                 }
 

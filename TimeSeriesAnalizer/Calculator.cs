@@ -144,7 +144,7 @@ namespace TimeSeriesAnalizer
                 return;
             }
 
-            point.EntropyMembershipFunction = Math.Round(Math.Log(1 / Math.Abs(point.Ny.Value)), 5);
+            point.EntropyMembershipFunction = Math.Round(Math.Abs(1.0 / point.Ny.Value) * Math.Log(1.0 / Math.Abs(point.Ny.Value)), 5);
         }
 
         public static void CalcEntropyFuzzyLabel(this TimeSeriesPoint point)
@@ -157,6 +157,31 @@ namespace TimeSeriesAnalizer
             point.ProbabilityFuzzyLabel = Statisctics.FuzzyLabelStatistics(point.FuzzyLabel);
 
             point.EntropyFuzzyLabel = point.ProbabilityFuzzyLabel * Math.Log(Math.Abs(point.ProbabilityFuzzyLabel.Value));
+        }
+
+        public static void CalcEntropyFuzzyTrend(this TimeSeriesPoint point, string before = null)
+        {
+            if(string.IsNullOrEmpty(before))
+            {
+                Statisctics.PhasePlaneStatistics(point.PhasePlaneTrendPosition.ToString());
+                return;
+            }
+
+            var prob = Statisctics.PhasePlaneStatistics(point.PhasePlaneTrendPosition.ToString(), before);
+
+            point.EntropyFuzzyTrend = prob * Math.Log(prob);
+        }
+
+        public static void CalcEntropyFuzzyTrend(this TimeSeriesPoint point, PhasePlaneTrendPosition? before)
+        {
+            if (!before.HasValue || !point.PhasePlaneTrendPosition.HasValue)
+            {
+                return;
+            }
+
+            var prob = TrendStaticStatistic.GetProbability(point.PhasePlaneTrendPosition.Value, before.Value);
+
+            point.EntropyFuzzyTrend = prob * Math.Log(prob);
         }
     }
 }

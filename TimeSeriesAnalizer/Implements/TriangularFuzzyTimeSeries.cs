@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TimeSeriesAnalizer
 {
@@ -11,7 +12,7 @@ namespace TimeSeriesAnalizer
         {
             if (model is TriangularConfig config)
             {
-                if(config.List != null)
+                if (config.List != null)
                 {
                     fuzzyLabels = config.List;
                 }
@@ -36,16 +37,21 @@ namespace TimeSeriesAnalizer
                 }
             }
 
-            if(model.Points == null)
+            if (model.Points == null)
             {
                 return;
             }
 
-            foreach(var point in model.Points)
+            foreach (var label in fuzzyLabels)
             {
-                point.Ny = 0;
-                foreach (var label in fuzzyLabels)
+                label.Entropy = 0.0;
+                foreach (var point in model.Points)
                 {
+                    if(!point.Ny.HasValue)
+                    {
+                        point.Ny = 0;
+                    }
+
                     if (point.Value > label.MinVal.Value && point.Value < label.MaxVal.Value)
                     {
                         point.FuzzyLabel = label.LinguisticTerm;
@@ -57,9 +63,10 @@ namespace TimeSeriesAnalizer
                         {
                             point.Ny = ((label.MaxVal.Value - point.Value) / (label.MaxVal.Value - label.Center.Value));
                         }
-                        break;
+                        label.Entropy += Math.Abs(point.Ny.Value) * Math.Log(1.0 / Math.Abs(point.Ny.Value));
                     }
                 }
+               // label.Entropy /= model.Points.Where(x => x.FuzzyLabel == label.LinguisticTerm).Count();
             }
         }
 

@@ -9,5 +9,7 @@
         public double? MaxVal { get; set; }
 
         public double? Center { get; set; }
+
+        public double? Entropy { get; set; }
     }
 }

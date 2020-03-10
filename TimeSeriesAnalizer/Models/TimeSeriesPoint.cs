@@ -38,5 +38,7 @@ namespace TimeSeriesAnalizer
         public double? ProbabilityFuzzyLabel { get; set; }
 
         public double? EntropyFuzzyLabel { get; set; }
+
+        public double? EntropyFuzzyTrend { get; set; }
     }
 }

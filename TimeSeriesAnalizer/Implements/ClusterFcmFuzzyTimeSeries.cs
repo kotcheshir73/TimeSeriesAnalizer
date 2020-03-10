@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TimeSeriesAnalizer
 {
@@ -71,6 +72,20 @@ namespace TimeSeriesAnalizer
                     {
                         break;
                     }
+                }
+
+                for (int i = 0; i < centers.Count; ++i)
+                {
+                    centers[i].Entropy = 0.0;
+                    for (int j = 0; j < points.Count; j++)
+                    {
+                        if (points[j].FuzzyLabel == centers[i].LinguisticTerm)
+                        {
+                            centers[i].Entropy += U[i, j] * Math.Log(1.0 / Math.Abs(U[i, j]));
+                        }
+                    }
+
+                   // centers[i].Entropy /= points.Where(x => x.FuzzyLabel == centers[i].LinguisticTerm).Count();
                 }
             }
         }
@@ -149,7 +164,7 @@ namespace TimeSeriesAnalizer
                             {
                                 break;
                             }
-                            if((sum < 1 && sum + delta > 1) || (sum > 1 && sum - delta < 1))
+                            if ((sum < 1 && sum + delta > 1) || (sum > 1 && sum - delta < 1))
                             {
                                 delta = Math.Abs(sum - 1);
                             }
@@ -225,7 +240,7 @@ namespace TimeSeriesAnalizer
                             points[j].Ny = U[i, j];
                             points[j].FuzzyLabel = centers[i].LinguisticTerm;
 
-                            if(points[j].Value < centers[i].Center)
+                            if (points[j].Value < centers[i].Center)
                             {
                                 points[j].Ny *= -1;
                             }
