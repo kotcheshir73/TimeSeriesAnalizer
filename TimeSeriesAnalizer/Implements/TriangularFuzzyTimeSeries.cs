@@ -63,7 +63,8 @@ namespace TimeSeriesAnalizer
                         {
                             point.Ny = ((label.MaxVal.Value - point.Value) / (label.MaxVal.Value - label.Center.Value));
                         }
-                        label.Entropy += Math.Abs(point.Ny.Value) * Math.Log(1.0 / Math.Abs(point.Ny.Value));
+                        label.Entropy -= Math.Abs(point.Ny.Value) * Math.Log(Math.Abs(point.Ny.Value)) + 
+                            (1.0 - Math.Abs(point.Ny.Value)) * Math.Log(1.0 - Math.Abs(point.Ny.Value));
                     }
                 }
                // label.Entropy /= model.Points.Where(x => x.FuzzyLabel == label.LinguisticTerm).Count();

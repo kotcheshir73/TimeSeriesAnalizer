@@ -144,7 +144,8 @@ namespace TimeSeriesAnalizer
                 return;
             }
 
-            point.EntropyMembershipFunction = Math.Round(Math.Abs(1.0 / point.Ny.Value) * Math.Log(1.0 / Math.Abs(point.Ny.Value)), 5);
+            point.EntropyMembershipFunction = -1.0 * (Math.Round(Math.Abs(point.Ny.Value) * Math.Log(Math.Abs(point.Ny.Value)), 5) +
+                Math.Round((1.0 - Math.Abs(point.Ny.Value)) * Math.Log(1.0 - Math.Abs(point.Ny.Value)), 5));
         }
 
         public static void CalcEntropyFuzzyLabel(this TimeSeriesPoint point)

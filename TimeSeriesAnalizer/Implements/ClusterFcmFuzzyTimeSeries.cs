@@ -81,7 +81,7 @@ namespace TimeSeriesAnalizer
                     {
                         if (points[j].FuzzyLabel == centers[i].LinguisticTerm)
                         {
-                            centers[i].Entropy += U[i, j] * Math.Log(1.0 / Math.Abs(U[i, j]));
+                            centers[i].Entropy -= U[i, j] * Math.Log(U[i, j]) + (1.0 - U[i,j]) * Math.Log(1.0 - U[i, j]);
                         }
                     }
 
